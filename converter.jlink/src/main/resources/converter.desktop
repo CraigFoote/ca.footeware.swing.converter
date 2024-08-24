@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Converter
+Exec=/opt/converter/bin/converter
+Terminal=false
+Icon=/opt/converter/converter.svg
+Categories=Utility;
+StartupNotify=true
+StartupWMClass=ca-footeware-swing-converter-Converter

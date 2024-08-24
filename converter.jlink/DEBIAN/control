@@ -1,0 +1,6 @@
+Package: converter
+Version: 0.0.1
+Maintainer: Craig Foote <CraigFoote@gmail.com>
+Description: An application with a set of tab panels each doing some sort of conversion.
+Homepage: http://Footeware.ca
+Architecture: all
