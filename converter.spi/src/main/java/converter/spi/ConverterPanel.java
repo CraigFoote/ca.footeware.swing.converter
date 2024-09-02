@@ -9,7 +9,7 @@ import javax.swing.JComponent;
 /**
  * @author Footeware.ca
  *
- *         Extend this class to produce a tab panel in <code>Converter</code>.
+ * Extend this class to produce a tab panel in <code>Converter</code>.
  */
 public interface ConverterPanel {
 

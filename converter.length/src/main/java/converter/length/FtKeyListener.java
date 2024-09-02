@@ -70,6 +70,11 @@ public class FtKeyListener extends KeyAdapter {
 		this.lengthPanel.inText.setText(isValid ? String.valueOf(input * 12) : EMPTY);
 		this.lengthPanel.inText.addKeyListener(this.lengthPanel.inListener);
 
+		// update yards
+		this.lengthPanel.ydText.removeKeyListener(this.lengthPanel.ydListener);
+		this.lengthPanel.ydText.setText(isValid ? formatter.format(input / 3) : EMPTY);
+		this.lengthPanel.ydText.addKeyListener(this.lengthPanel.ydListener);
+
 		// update miles
 		this.lengthPanel.miText.removeKeyListener(this.lengthPanel.miListener);
 		this.lengthPanel.miText.setText(isValid ? String.valueOf(input / 5280) : EMPTY);

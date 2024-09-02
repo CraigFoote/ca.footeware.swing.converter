@@ -2,5 +2,5 @@
 # This `DEBIAN/postinst` script is run post-installation
 
 if [ "$1" = configure ]; then
-	echo "Hello"
+	echo "Hello Craig 👍️"
 fi

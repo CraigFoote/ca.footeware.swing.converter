@@ -73,6 +73,11 @@ public class MmKeyListener extends KeyAdapter {
 		this.lengthPanel.ftText.setText(isValid ? formatter.format(input / 304.8) : EMPTY);
 		this.lengthPanel.ftText.addKeyListener(this.lengthPanel.ftListener);
 
+		// update yards
+		this.lengthPanel.ydText.removeKeyListener(this.lengthPanel.ydListener);
+		this.lengthPanel.ydText.setText(isValid ? formatter.format(input / 914.4) : EMPTY);
+		this.lengthPanel.ydText.addKeyListener(this.lengthPanel.ydListener);
+
 		// update miles
 		this.lengthPanel.miText.removeKeyListener(this.lengthPanel.miListener);
 		this.lengthPanel.miText.setText(isValid ? formatter.format(input / 1.609E+6) : EMPTY);

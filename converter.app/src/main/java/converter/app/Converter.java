@@ -26,9 +26,6 @@ import converter.spi.ConverterPanel;
  */
 public class Converter {
 
-	private static final int WIDTH = 600;
-	private static final int HEIGHT = 400;
-
 	/**
 	 * Application entry point.
 	 *
@@ -50,10 +47,6 @@ public class Converter {
 	protected static void createAndShowGUI() {
 		JFrame frame = new JFrame("Converter");
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		frame.setSize(WIDTH, HEIGHT);
-		// center on screen
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		frame.setLocation(screenSize.width / 2 - WIDTH / 2, screenSize.height / 2 - HEIGHT / 2);
 
 		// find all the ConverterPanel implementations & put them in a list
 		List<ConverterPanel> panels = new ArrayList<>();
@@ -71,7 +64,11 @@ public class Converter {
 			tabPane.addTab(converterPanel.getLabel(), converterPanel.getImage(), panel);
 		}
 		frame.add(tabPane);
+		
 		frame.pack();
+		// center on screen
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		frame.setLocation(screenSize.width / 2 - frame.getWidth() / 2, screenSize.height / 2 - frame.getHeight() / 2);
 		frame.setVisible(true);
 	}
 }

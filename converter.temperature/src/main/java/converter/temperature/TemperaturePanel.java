@@ -79,8 +79,8 @@ public class TemperaturePanel implements ConverterPanel {
 
 		JScrollPane scrollPane = new JScrollPane(panel, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
 				ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		panel.setPreferredSize(new Dimension(295, 165));
-		scrollPane.setPreferredSize(new Dimension(300, 17));
+		panel.setPreferredSize(new Dimension(390, 160));
+		scrollPane.setPreferredSize(new Dimension(400, 170));
 
 		Font font = new Font(Font.MONOSPACED, Font.PLAIN, 20);
 

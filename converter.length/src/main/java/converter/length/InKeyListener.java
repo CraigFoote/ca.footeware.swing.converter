@@ -70,6 +70,11 @@ public class InKeyListener extends KeyAdapter {
 		this.lengthPanel.ftText.setText(isValid ? formatter.format(input / 12) : EMPTY);
 		this.lengthPanel.ftText.addKeyListener(this.lengthPanel.ftListener);
 
+		// update yards
+		this.lengthPanel.ydText.removeKeyListener(this.lengthPanel.ydListener);
+		this.lengthPanel.ydText.setText(isValid ? formatter.format(input / 36) : EMPTY);
+		this.lengthPanel.ydText.addKeyListener(this.lengthPanel.ydListener);
+
 		// update miles
 		this.lengthPanel.miText.removeKeyListener(this.lengthPanel.miListener);
 		this.lengthPanel.miText.setText(isValid ? formatter.format(input / 63360) : EMPTY);

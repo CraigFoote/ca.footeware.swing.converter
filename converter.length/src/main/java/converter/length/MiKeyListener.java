@@ -74,5 +74,10 @@ public class MiKeyListener extends KeyAdapter {
 		this.lengthPanel.ftText.removeKeyListener(this.lengthPanel.ftListener);
 		this.lengthPanel.ftText.setText(isValid ? formatter.format(input * 5280) : EMPTY);
 		this.lengthPanel.ftText.addKeyListener(this.lengthPanel.ftListener);
+
+		// update yards
+		this.lengthPanel.ydText.removeKeyListener(this.lengthPanel.ydListener);
+		this.lengthPanel.ydText.setText(isValid ? formatter.format(input * 1760) : EMPTY);
+		this.lengthPanel.ydText.addKeyListener(this.lengthPanel.ydListener);
 	}
 }

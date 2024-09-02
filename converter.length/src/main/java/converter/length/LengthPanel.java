@@ -40,6 +40,7 @@ public class LengthPanel implements ConverterPanel {
 	JTextField kmText;
 	JTextField inText;
 	JTextField ftText;
+	JTextField ydText;
 	JTextField miText;
 
 	KeyListener mmListener;
@@ -48,6 +49,7 @@ public class LengthPanel implements ConverterPanel {
 	KeyListener kmListener;
 	KeyListener inListener;
 	KeyListener ftListener;
+	KeyListener ydListener;
 	KeyListener miListener;
 
 	public LengthPanel() {
@@ -57,6 +59,7 @@ public class LengthPanel implements ConverterPanel {
 		kmListener = new KmKeyListener(this);
 		inListener = new InKeyListener(this);
 		ftListener = new FtKeyListener(this);
+		ydListener = new YdKeyListener(this);
 		miListener = new MiKeyListener(this);
 	}
 
@@ -87,11 +90,11 @@ public class LengthPanel implements ConverterPanel {
 		JPanel panel = new JPanel();
 		SpringLayout layout = new SpringLayout();
 		panel.setLayout(layout);
-		
+
 		JScrollPane scrollPane = new JScrollPane(panel, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
 				ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		panel.setPreferredSize(new Dimension(295, 365));
-		scrollPane.setPreferredSize(new Dimension(300, 370));
+		panel.setPreferredSize(new Dimension(390, 420));
+		scrollPane.setPreferredSize(new Dimension(400, 430));
 
 		Font font = new Font(Font.MONOSPACED, Font.PLAIN, 20);
 
@@ -197,6 +200,23 @@ public class LengthPanel implements ConverterPanel {
 		ftLabel.setFont(font);
 		panel.add(ftLabel);
 
+		// yards
+		ydText = new JTextField();
+		ydText.setFont(font);
+		ydText.setForeground(Color.GRAY);
+		JPopupMenu ydPopup = new JPopupMenu("yd");
+		JMenuItem ydCopyMenuItem = new JMenuItem("Copy");
+		ydCopyMenuItem.addActionListener(e -> copy(ydText.getText()));
+		ydPopup.add(ydCopyMenuItem);
+		ydText.add(ydPopup);
+		ydText.setComponentPopupMenu(ydPopup);
+		ydText.addKeyListener(ydListener);
+		panel.add(ydText);
+
+		JLabel ydLabel = new JLabel("yd", SwingConstants.LEFT);
+		ydLabel.setFont(font);
+		panel.add(ydLabel);
+
 		// miles
 		miText = new JTextField();
 		miText.setFont(font);
@@ -256,11 +276,18 @@ public class LengthPanel implements ConverterPanel {
 		layout.putConstraint(SpringLayout.NORTH, ftLabel, 25, SpringLayout.SOUTH, inLabel);
 		layout.putConstraint(SpringLayout.EAST, ftText, -10, SpringLayout.WEST, ftLabel);
 
+		// yards
+		layout.putConstraint(SpringLayout.WEST, ydText, 20, SpringLayout.WEST, panel);
+		layout.putConstraint(SpringLayout.NORTH, ydText, 20, SpringLayout.SOUTH, ftText);
+		layout.putConstraint(SpringLayout.EAST, ydLabel, -20, SpringLayout.EAST, panel);
+		layout.putConstraint(SpringLayout.NORTH, ydLabel, 25, SpringLayout.SOUTH, ftLabel);
+		layout.putConstraint(SpringLayout.EAST, ydText, -10, SpringLayout.WEST, ydLabel);
+
 		// miles
 		layout.putConstraint(SpringLayout.WEST, miText, 20, SpringLayout.WEST, panel);
-		layout.putConstraint(SpringLayout.NORTH, miText, 20, SpringLayout.SOUTH, ftText);
+		layout.putConstraint(SpringLayout.NORTH, miText, 20, SpringLayout.SOUTH, ydText);
 		layout.putConstraint(SpringLayout.EAST, miLabel, -20, SpringLayout.EAST, panel);
-		layout.putConstraint(SpringLayout.NORTH, miLabel, 25, SpringLayout.SOUTH, ftLabel);
+		layout.putConstraint(SpringLayout.NORTH, miLabel, 25, SpringLayout.SOUTH, ydLabel);
 		layout.putConstraint(SpringLayout.EAST, miText, -10, SpringLayout.WEST, miLabel);
 
 		return scrollPane;
