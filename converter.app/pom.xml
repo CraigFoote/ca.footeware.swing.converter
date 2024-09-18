@@ -124,7 +124,7 @@
 					</programs>
 					<extraJvmArguments>
 						-Duser.language=en
-						-Duser.country=US
+						-Duser.country=CA
 						-Dfile.encoding=UTF-8
 						-Xms128M
 						-Xmx756M
@@ -136,64 +136,6 @@
 					</binFileExtensions>
 					<repositoryName>lib</repositoryName>
 				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>exec-maven-plugin</artifactId>
-				<version>3.4.1</version>
-				<executions>
-					<execution>
-						<id>jpackage-linux-deb</id>
-						<phase>pre-integration-test</phase>
-						<goals>
-							<goal>exec</goal>
-						</goals>
-						<configuration>
-							<executable>${env.JAVA_HOME}/bin/jpackage</executable>
-							<arguments>
-								<argument>
-									@${project.basedir}/src/main/jpackage-data/converter.app.jpackage.settings</argument>
-								<argument>--name</argument>
-								<argument>converter</argument>
-								<argument>--input</argument>
-								<argument>
-									${project.build.directory}/appassembler/lib</argument>
-								<argument>--license-file</argument>
-								<argument>
-									${project.build.directory}/appassembler/lib/gpl-3.0.txt</argument>
-								<argument>--icon</argument>
-								<argument>
-									${project.build.directory}/appassembler/lib/images/converter_96.png</argument>
-								<argument>--main-jar</argument>
-								<argument>converter.app-0.0.1-SNAPSHOT.jar</argument>
-								<argument>--description</argument>
-								<argument>An application with a set of tab
-									panels each doing some sort of conversion.</argument>
-								<argument>--app-version</argument>
-								<argument>0.0.1</argument>
-								<argument>--linux-app-release</argument>
-								<argument></argument>
-								<argument>--add-modules</argument>
-								<argument>java.base,java.desktop</argument>
-								<argument>--java-options</argument>
-								<argument>-ms64m</argument>
-								<argument>--java-options</argument>
-								<argument>-mx512m</argument>
-								<argument>--linux-shortcut</argument>
-								<argument>--linux-app-category</argument>
-								<argument>Utility</argument>
-								<argument>--linux-menu-group</argument>
-								<argument>Utility</argument>
-								<argument>--about-url</argument>
-								<argument>http://Footeware.ca</argument>
-								<argument>--resource-dir</argument>
-								<argument>
-									${project.basedir}/src/main/jpackage-data/linuxOverride</argument>
-							</arguments>
-							<workingDirectory>${project.build.directory}</workingDirectory>
-						</configuration>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 	</build>
