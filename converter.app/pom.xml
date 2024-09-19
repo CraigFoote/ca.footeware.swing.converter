@@ -8,16 +8,13 @@
 	<parent>
 		<groupId>ca.footeware.swing</groupId>
 		<artifactId>converter.parent</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>1.0.0-SNAPSHOT</version>
 		<relativePath>../converter.parent</relativePath>
 	</parent>
 
 	<properties>
-		<maven.compiler.source>22</maven.compiler.source>
-		<maven.compiler.target>22</maven.compiler.target>
 		<maven.compiler.encoding>UTF-8</maven.compiler.encoding>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
 
 	<licenses>
@@ -50,11 +47,10 @@
 				<configuration>
 					<compilerArgs>
 						<arg>-Xlint:all</arg>
-						<arg>-verbose</arg>
-						<!--<arg>-Xlint:all,-options,-path</arg> -->
 					</compilerArgs>
 				</configuration>
 			</plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
@@ -77,6 +73,7 @@
 					</excludes>
 				</configuration>
 			</plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
@@ -103,6 +100,7 @@
 					</execution>
 				</executions>
 			</plugin>
+
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>appassembler-maven-plugin</artifactId>
@@ -131,10 +129,61 @@
 					</extraJvmArguments>
 					<repositoryLayout>flat</repositoryLayout>
 					<useWildcardClassPath>true</useWildcardClassPath>
-					<binFileExtensions>
-						<!--<unix>.sh</unix> -->
-					</binFileExtensions>
 					<repositoryName>lib</repositoryName>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>3.4.1</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<executable>jpackage</executable>
+					<arguments>
+						<argument>--verbose</argument>
+						<argument>
+							@${project.basedir}/src/main/jpackage-data/converter.app.jpackage.settings</argument>
+						<argument>--name</argument>
+						<argument>converter</argument>
+						<argument>--dest</argument>
+						<argument>target</argument>
+						<argument>--input</argument>
+						<argument>target/appassembler/lib</argument>
+						<argument>--license-file</argument>
+						<argument>src/main/resources-extra/gpl-3.0.txt</argument>
+						<argument>--icon</argument>
+						<argument>
+							src/main/resources-extra/images/converter_96.png</argument>
+						<argument>--main-jar</argument>
+						<argument>converter.app-${project.version}.jar</argument>
+						<argument>--description</argument>
+						<argument>An application with a set of tab panels,
+							each doing some sort of conversion.</argument>
+						<argument>--app-version</argument>
+						<argument>${project.version}</argument>
+						<argument>--add-modules</argument>
+						<argument>
+							java.base,java.desktop,converter.length,converter.temperature</argument>
+						<argument>--module-path</argument>
+						<argument>
+							../converter.length/target/classes:../converter.temperature/target/classes:../converter.spi/target/classes</argument>
+						<argument>--linux-shortcut</argument>
+						<argument>--linux-app-category</argument>
+						<argument>Utility</argument>
+						<argument>--linux-menu-group</argument>
+						<argument>Utility</argument>
+						<argument>--about-url</argument>
+						<argument>http://Footeware.ca</argument>
+						<argument>--resource-dir</argument>
+						<argument>src/main/jpackage-data/linuxOverride</argument>
+					</arguments>
 				</configuration>
 			</plugin>
 		</plugins>
