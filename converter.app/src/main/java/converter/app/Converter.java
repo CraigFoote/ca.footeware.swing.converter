@@ -33,7 +33,7 @@ public class Converter {
 	 */
 	public static void main(String[] args) {
 		try {
-			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); // dark mode works!
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); // dark mode did work but now doesn't
 		} catch (UnsupportedLookAndFeelException | ClassNotFoundException | InstantiationException
 				| IllegalAccessException e) {
 			e.printStackTrace();
@@ -64,7 +64,7 @@ public class Converter {
 			tabPane.addTab(converterPanel.getLabel(), converterPanel.getImage(), panel);
 		}
 		frame.add(tabPane);
-		
+
 		frame.pack();
 		// center on screen
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
