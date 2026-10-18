@@ -79,17 +79,17 @@ public class TemperaturePanel implements ConverterPanel {
 
 		JScrollPane scrollPane = new JScrollPane(panel, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
 				ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		panel.setPreferredSize(new Dimension(390, 160));
-		scrollPane.setPreferredSize(new Dimension(400, 170));
+		panel.setPreferredSize(new Dimension(490, 520));
+		scrollPane.setPreferredSize(new Dimension(500, 530));
 
-		Font font = new Font(Font.MONOSPACED, Font.PLAIN, 20);
+		Font font = new Font(Font.MONOSPACED, Font.PLAIN, 32);
 
 		celsiusText = new JTextField();
 		celsiusText.setFont(font);
 		celsiusText.setForeground(Color.GRAY);
 		JPopupMenu celsiusPopup = new JPopupMenu("celsius");
 		JMenuItem celsiusCopyMenuItem = new JMenuItem("Copy");
-		celsiusCopyMenuItem.addActionListener(e -> copy(celsiusText.getText()));
+		celsiusCopyMenuItem.addActionListener(_ -> copy(celsiusText.getText()));
 		celsiusPopup.add(celsiusCopyMenuItem);
 		celsiusText.add(celsiusPopup);
 		celsiusText.setComponentPopupMenu(celsiusPopup);
@@ -105,7 +105,7 @@ public class TemperaturePanel implements ConverterPanel {
 		fahrenheitText.setForeground(Color.GRAY);
 		JPopupMenu fahrenheitPopup = new JPopupMenu("fahrenheit");
 		JMenuItem fahrenheitCopyMenuItem = new JMenuItem("Copy");
-		fahrenheitCopyMenuItem.addActionListener(e -> copy(fahrenheitText.getText()));
+		fahrenheitCopyMenuItem.addActionListener(_ -> copy(fahrenheitText.getText()));
 		fahrenheitPopup.add(fahrenheitCopyMenuItem);
 		fahrenheitText.add(fahrenheitPopup);
 		fahrenheitText.setComponentPopupMenu(fahrenheitPopup);
@@ -121,7 +121,7 @@ public class TemperaturePanel implements ConverterPanel {
 		kelvinText.setForeground(Color.GRAY);
 		JPopupMenu kelvinPopup = new JPopupMenu("kelvin");
 		JMenuItem kelvinCopyMenuItem = new JMenuItem("Copy");
-		kelvinCopyMenuItem.addActionListener(e -> copy(kelvinText.getText()));
+		kelvinCopyMenuItem.addActionListener(_ -> copy(kelvinText.getText()));
 		kelvinPopup.add(kelvinCopyMenuItem);
 		kelvinText.add(kelvinPopup);
 		kelvinText.setComponentPopupMenu(kelvinPopup);

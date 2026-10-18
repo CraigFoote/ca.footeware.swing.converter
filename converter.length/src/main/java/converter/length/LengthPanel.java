@@ -93,10 +93,10 @@ public class LengthPanel implements ConverterPanel {
 
 		JScrollPane scrollPane = new JScrollPane(panel, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
 				ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		panel.setPreferredSize(new Dimension(390, 420));
-		scrollPane.setPreferredSize(new Dimension(400, 430));
+		panel.setPreferredSize(new Dimension(490, 520));
+		scrollPane.setPreferredSize(new Dimension(500, 530));
 
-		Font font = new Font(Font.MONOSPACED, Font.PLAIN, 20);
+		Font font = new Font(Font.MONOSPACED, Font.PLAIN, 32);
 
 		// millimeters
 		mmText = new JTextField();
@@ -104,7 +104,7 @@ public class LengthPanel implements ConverterPanel {
 		mmText.setForeground(Color.GRAY);
 		JPopupMenu mmPopup = new JPopupMenu("mm");
 		JMenuItem mmCopyMenuItem = new JMenuItem("Copy");
-		mmCopyMenuItem.addActionListener(e -> copy(mmText.getText()));
+		mmCopyMenuItem.addActionListener(_ -> copy(mmText.getText()));
 		mmPopup.add(mmCopyMenuItem);
 		mmText.add(mmPopup);
 		mmText.setComponentPopupMenu(mmPopup);
@@ -121,7 +121,7 @@ public class LengthPanel implements ConverterPanel {
 		cmText.setForeground(Color.GRAY);
 		JPopupMenu cmPopup = new JPopupMenu("cm");
 		JMenuItem cmCopyMenuItem = new JMenuItem("Copy");
-		cmCopyMenuItem.addActionListener(e -> copy(cmText.getText()));
+		cmCopyMenuItem.addActionListener(_ -> copy(cmText.getText()));
 		cmPopup.add(cmCopyMenuItem);
 		cmText.add(cmPopup);
 		cmText.setComponentPopupMenu(cmPopup);
@@ -138,7 +138,7 @@ public class LengthPanel implements ConverterPanel {
 		mText.setForeground(Color.GRAY);
 		JPopupMenu mPopup = new JPopupMenu("m");
 		JMenuItem mCopyMenuItem = new JMenuItem("Copy");
-		mCopyMenuItem.addActionListener(e -> copy(mText.getText()));
+		mCopyMenuItem.addActionListener(_ -> copy(mText.getText()));
 		mPopup.add(mCopyMenuItem);
 		mText.add(mPopup);
 		mText.setComponentPopupMenu(mPopup);
@@ -155,7 +155,7 @@ public class LengthPanel implements ConverterPanel {
 		kmText.setForeground(Color.GRAY);
 		JPopupMenu kmPopup = new JPopupMenu("km");
 		JMenuItem kmCopyMenuItem = new JMenuItem("Copy");
-		kmCopyMenuItem.addActionListener(e -> copy(kmText.getText()));
+		kmCopyMenuItem.addActionListener(_ -> copy(kmText.getText()));
 		kmPopup.add(kmCopyMenuItem);
 		kmText.add(kmPopup);
 		kmText.setComponentPopupMenu(kmPopup);
@@ -172,7 +172,7 @@ public class LengthPanel implements ConverterPanel {
 		inText.setForeground(Color.GRAY);
 		JPopupMenu inPopup = new JPopupMenu("in");
 		JMenuItem inCopyMenuItem = new JMenuItem("Copy");
-		inCopyMenuItem.addActionListener(e -> copy(inText.getText()));
+		inCopyMenuItem.addActionListener(_ -> copy(inText.getText()));
 		inPopup.add(inCopyMenuItem);
 		inText.add(inPopup);
 		inText.setComponentPopupMenu(inPopup);
@@ -189,7 +189,7 @@ public class LengthPanel implements ConverterPanel {
 		ftText.setForeground(Color.GRAY);
 		JPopupMenu ftPopup = new JPopupMenu("ft");
 		JMenuItem ftCopyMenuItem = new JMenuItem("Copy");
-		ftCopyMenuItem.addActionListener(e -> copy(ftText.getText()));
+		ftCopyMenuItem.addActionListener(_ -> copy(ftText.getText()));
 		ftPopup.add(ftCopyMenuItem);
 		ftText.add(ftPopup);
 		ftText.setComponentPopupMenu(ftPopup);
@@ -206,7 +206,7 @@ public class LengthPanel implements ConverterPanel {
 		ydText.setForeground(Color.GRAY);
 		JPopupMenu ydPopup = new JPopupMenu("yd");
 		JMenuItem ydCopyMenuItem = new JMenuItem("Copy");
-		ydCopyMenuItem.addActionListener(e -> copy(ydText.getText()));
+		ydCopyMenuItem.addActionListener(_ -> copy(ydText.getText()));
 		ydPopup.add(ydCopyMenuItem);
 		ydText.add(ydPopup);
 		ydText.setComponentPopupMenu(ydPopup);
@@ -223,7 +223,7 @@ public class LengthPanel implements ConverterPanel {
 		miText.setForeground(Color.GRAY);
 		JPopupMenu miPopup = new JPopupMenu("mi");
 		JMenuItem miCopyMenuItem = new JMenuItem("Copy");
-		miCopyMenuItem.addActionListener(e -> copy(miText.getText()));
+		miCopyMenuItem.addActionListener(_ -> copy(miText.getText()));
 		miPopup.add(miCopyMenuItem);
 		miText.add(miPopup);
 		miText.setComponentPopupMenu(miPopup);
